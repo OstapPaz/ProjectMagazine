@@ -19,6 +19,10 @@ public class Product extends BaseEntity {
 	
 	private String description;
 	
+	private String maker;
+	
+	private String color;
+	
 	private String country;
 	
 	private String garanties;

@@ -24,8 +24,8 @@ public class HomeController {
 	@Autowired private UserService us;
 	
 	@GetMapping("/")
-	public ModelAndView showHome() {
-		return new ModelAndView("home");
+	public String showHome() {
+		return "home";
 	}
 	
 	@PreAuthorize("isAnonymous()")
@@ -34,12 +34,13 @@ public class HomeController {
 		return "login";
 	}
 	
+	@PreAuthorize("isAnonymous()")
 	@GetMapping("/register")
 	public String showRegister(Model model) {
 		model.addAttribute("userDto", new UserDto());
 		return "register";
 	}
-	
+
 	@PostMapping("/register")
 	public String addRegister(@Valid @ModelAttribute("userDto") UserDto userDto,
 			Model model, BindingResult br) {

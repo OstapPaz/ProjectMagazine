@@ -24,7 +24,9 @@
 					<div class="navbar-inner">
 						<div class="container">
 							<ul class="nav">
+								<sec:authorize access="!isAuthenticated()">
 								<li><a href="http://localhost:8080/login">Sign in</a></li>
+								</sec:authorize>
 
 								<li><a href="http://localhost:8080">Main</a></li>
 
