@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+footer {
+	background-color: #555;
+	color: white;
+	padding: 15px;
+}
+
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+.bg-lightgray
+{
+    background-color:LightGray;
+}
