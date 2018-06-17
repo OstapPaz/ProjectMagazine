@@ -31,14 +31,14 @@ public class HomeController {
 	@PreAuthorize("isAnonymous()")
 	@GetMapping("/login")
 	public String showLogin() {
-		return "login";
+		return "user/login";
 	}
 	
 	@PreAuthorize("isAnonymous()")
 	@GetMapping("/register")
 	public String showRegister(Model model) {
 		model.addAttribute("userDto", new UserDto());
-		return "register";
+		return "user/register";
 	}
 
 	@PostMapping("/register")
@@ -46,7 +46,7 @@ public class HomeController {
 			Model model, BindingResult br) {
 		
 		if (br.hasErrors()) {
-			return "register";
+			return "user/register";
 		}
 		
 		us.save(UserMapper.toOurUser(userDto));
@@ -57,14 +57,8 @@ public class HomeController {
 	@GetMapping("/my-profile")
 	public String showProfile(Model model, Principal principal) {
 		model.addAttribute("user", us.findUserByLogin(principal.getName()));
-		return "my-profile";
+		return "user/my-profile";
 	}
-	
-	@PreAuthorize("isAuthenticated()")
-	@GetMapping("/users")
-	public String showUsersList(Model model) {
-		model.addAttribute("usersList", us.findAll());
-		return "users-list";
-	}
+		
 	
 }

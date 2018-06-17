@@ -1,5 +1,8 @@
 package com.defence.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -23,7 +26,15 @@ public class ProductController {
 	@GetMapping("/add")
 	public String showAddProduct(Model model) {
 		model.addAttribute("productDto", new ProductDto());
-		return "add-product";
+		List<String> types = new ArrayList<String>();
+		types.add("gas catridges");
+		types.add("knives");
+		types.add("pneumatic weapons");
+		types.add("baseball sticks");
+		types.add("clothes");
+		types.add("others");
+		model.addAttribute("types", types);
+		return "product/add-product";
 	}
 	
 	@PostMapping("/add")
@@ -31,6 +42,12 @@ public class ProductController {
 			Model model) {
 		ps.saveProduct(ProductMapper.toProduct(productDto));
 		return "redirect:/";
+	}
+	
+	@GetMapping("/all")
+	public String allProducts(Model model) {
+		model.addAttribute("product", ps.findAll());
+		return "product/all";
 	}
 	
 }

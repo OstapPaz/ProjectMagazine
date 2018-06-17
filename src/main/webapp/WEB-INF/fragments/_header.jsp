@@ -23,23 +23,32 @@
 				<div class="navbar">
 					<div class="navbar-inner">
 						<div class="container">
+						
 							<ul class="nav">
 								<sec:authorize access="!isAuthenticated()">
-								<li><a href="http://localhost:8080/login">Sign in</a></li>
+									<li><a href="http://localhost:8080/login">Sign in</a></li>
 								</sec:authorize>
 
 								<li><a href="http://localhost:8080">Main</a></li>
 
 								<li><a href="#">Search</a></li>
-								
+
 								<sec:authorize access="isAuthenticated()">
-								<li><a href="/my-profile">Profile</a></li>
+									<li><a href="/my-profile">Profile</a></li>
 								</sec:authorize>
-								
+
 								<sec:authorize access="!isAuthenticated()">
-								<li><a href="/login">Profile</a></li>
+									<li><a href="/login">Profile</a></li>
 								</sec:authorize>
-								
+
+								<sec:authorize access="hasRole('ROLE_ADMIN')">
+									<li><a href="/admin/users">Users</a></li>
+								</sec:authorize>
+
+								<sec:authorize access="hasRole('ROLE_ADMIN')">
+									<li><a href="/product/add">Add product</a></li>
+								</sec:authorize>
+
 							</ul>
 						</div>
 					</div>

@@ -9,11 +9,14 @@
         <ul class="nav bs-sidenav">
               
                 <li>
-  <a href="#glyphicons">Commodity</a>
+  <a href="/product/all">Commodity</a>
   <ul class="nav">
     <li><a href="#glyphicons-glyphs">Knives</a></li>
     <li><a href="#glyphicons-how-to-use">Gas cartridges</a></li>
     <li><a href="#glyphicons-examples">Pneumatic weapon</a></li>
+    <li><a href="#glyphicons-examples">Baseball sticks</a></li>
+    <li><a href="#glyphicons-examples">Clothes</a></li>
+    <li><a href="#glyphicons-examples">Others</a></li>
   </ul>
 </li>
    

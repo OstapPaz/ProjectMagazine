@@ -23,6 +23,10 @@ public class UserMapper {
 				.password(userDto.getPassword()).role(UserRole.ROLE_USER).build();
 	}
 	
+	public static com.defence.entity.User toOurUserSetRole(UserDto userDto) {
+		return new ModelMapper().map(userDto, com.defence.entity.User.class);
+	}
+	
 	public static UserDto toDtoUser(com.defence.entity.User user) {
 		return new ModelMapper().map(user, UserDto.class);
 	}

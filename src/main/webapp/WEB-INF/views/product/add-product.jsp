@@ -12,13 +12,17 @@
 		<form:form action="/product/add" method="post" modelAttribute="productDto" style="margin-left: 100px">
 		
 		Name: <input type="text" name="name">  <br>
-		Type: <input type="text" name="type">  <br>
+		Type: 
+		<form:select path="type"> 
+			<form:options items="${ types }"/>
+		</form:select> <br> <br>
 		Description: <input type="text" name="description" 
 		<textarea name="textarea" style="width:250px;height:150px;"></textarea>>  <br>
 		Color: <input type="text" name="color">  <br>
 		Maker: <input type="text" name="maker"> <br>
 		Country: <input type="text" name="country">  <br>
 		Guarantee: <input type="text" name="garanties"> <br>
+		Price: <input type="text" name="price"> <br>
 		<button type="submit">Add product</button>
 		
 	</form:form>

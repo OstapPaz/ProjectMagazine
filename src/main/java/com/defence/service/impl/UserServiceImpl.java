@@ -43,6 +43,11 @@ public class UserServiceImpl implements UserService {
 	public User findUserByLogin(String login) {
 		return ur.findUserByLogin(login);
 	}
+
+	@Override
+	public void deleteById(Integer id) {
+		ur.deleteById(id);
+	}
 	
 	
 
