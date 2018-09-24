@@ -11,12 +11,12 @@
                 <li>
   <a href="/product/all">Commodity</a>
   <ul class="nav">
-    <li><a href="#glyphicons-glyphs">Knives</a></li>
-    <li><a href="#glyphicons-how-to-use">Gas cartridges</a></li>
-    <li><a href="#glyphicons-examples">Pneumatic weapon</a></li>
-    <li><a href="#glyphicons-examples">Baseball sticks</a></li>
-    <li><a href="#glyphicons-examples">Clothes</a></li>
-    <li><a href="#glyphicons-examples">Others</a></li>
+    <li><a href="/product/knives">Knives</a></li>
+    <li><a href="/product/gas">Gas cartridges</a></li>
+    <li><a href="/product/pneumatic">Pneumatic weapon</a></li>
+    <li><a href="/product/sticks">Baseball sticks</a></li>
+    <li><a href="/product/clothes">Clothes</a></li>
+    <li><a href="/product/others">Others</a></li>
   </ul>
 </li>
    

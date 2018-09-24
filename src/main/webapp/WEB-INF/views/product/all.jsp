@@ -6,66 +6,89 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>All products</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 
-	<link
-		href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"
-		rel="stylesheet" id="bootstrap-css">
-	<script
-		src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-	<!------ Include the above in your HEAD tag ---------->
+	<div class="container" style="margin-left: 100px">
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-			<c:forEach items="${ product }" var="product">
-				<div class="col-sm-6 col-md-4">
-					<div class="thumbnail">
-						<h4 class="text-center">
-							<span class="label label-info">${ product.type }</span>
-						</h4>
-						<img src="http://placehold.it/650x450&text=Galaxy S5"
-							class="img-responsive">
-						<div class="caption">
-							<div class="row">
-								<div class="col-md-6 col-xs-6">
-									<h3>${ product.name } $</h3>
-								</div>
-								<div class="col-md-6 col-xs-6 price">
-									<h3>
-										<label>${ product.price } $</label>
-									</h3>
-								</div>
-							</div>
-							<p>${ product.country }</p>
-							<p>${ product.maker }</p>
-							<p>${ product.color }</p>
-							<p>${ product.garanties }</p>
-							<p>${ product.description }</p>
-							<div class="row">
-							<sec:authorize access="isAuthenticated()">
-								<div class="col-md-6">
-									<a class="btn btn-primary btn-product"><span
-										class="glyphicon glyphicon-thumbs-up"></span> Like</a>
-								</div>
-								<div class="col-md-6">
-									<a href="#" class="btn btn-success btn-product"><span
-										class="glyphicon glyphicon-shopping-cart"></span> Buy</a>
-								</div>
-							</sec:authorize>
-							</div>
+		<%-- <form:form modelAttribute="filterModel" action="/product/search"
+			method="GET">
+		First <form:input path="searchName" />
+		Last  <form:input path="searchType" /> 
+		Input <form:input path="searchMaker" /> 
+		Login <form:input path="searchCountry" />
+			<br> 
+		Min salary <form:input path="searchMinSalary" type="number" /> 
+		Max salary <form:input path="searchMaxSalary" type="number" />
+			<br>
+			<button type="submit">Search</button>
+		</form:form> --%>
 
-							<p></p>
-						</div>
-					</div>
-				</div>
+		<table id="example" class="display" cellspacing="0" width="75%">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Maker</th>
+					<th>Color</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					<th>Name</th>
+					<th>Type</th>
+					<th>Maker</th>
+					<th>Color</th>
+					<th>Price</th>
+				</tr>
+			</tfoot>
+			<tbody>
+				<c:forEach items="${ product }" var="p">
+					<tr>
+						<td>${ p.name }</td>
+						<td>${ p.type }</td>
+						<td>${ p.maker }</td>
+						<td>${ p.color }</td>
+						<td>${ p.price }</td>
+						<td><a href="product/full/${ p.id }"> Full info </a></td>
+					</tr>
 				</c:forEach>
-			</div>
-
-		</div>
+			</tbody>
+		</table>
 	</div>
+
+	<script type="text/javascript">
+		'use strict';
+		var $ = jQuery;
+		$.getScript(
+				"https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js",
+				function() {
+
+					$('#example').DataTable({
+						"paging" : true,
+						"ordering" : true,
+						"info" : false
+					});
+				});
+	</script>
 
 </body>
 </html>

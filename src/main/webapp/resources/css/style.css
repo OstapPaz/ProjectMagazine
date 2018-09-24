@@ -11,3 +11,6 @@ footer {
 {
     background-color:LightGray;
 }
+
+@import  url('https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css');
+

@@ -10,19 +10,18 @@ import com.defence.dto.UserDto;
 import com.defence.repository.UserRepository;
 
 @Component
-public class CheckIfUserExistsValidator implements ConstraintValidator<CheckIfPasswordsEq, UserDto> {
+public class CheckIfEmailExistsValidator implements ConstraintValidator<CheckIfEmailExists, UserDto> {
 
 	@Autowired private UserRepository ur;
 	
 	@Override
 	public boolean isValid(UserDto userDto, ConstraintValidatorContext context) {
 		
-		if(ur.findUserByLogin(userDto.getLogin().toLowerCase()) == null) {
+		if(ur.findUserByEmail(userDto.getEmail().toLowerCase()) == null) {
 			return true;
 		}
 		
 		return false;
 	}
 
-	
 }

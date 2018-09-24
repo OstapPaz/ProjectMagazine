@@ -42,8 +42,7 @@ public class HomeController {
 	}
 
 	@PostMapping("/register")
-	public String addRegister(@Valid @ModelAttribute("userDto") UserDto userDto,
-			Model model, BindingResult br) {
+	public String addRegister(@Valid @ModelAttribute("userDto") UserDto userDto, BindingResult br) {
 		
 		if (br.hasErrors()) {
 			return "user/register";

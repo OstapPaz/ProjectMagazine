@@ -10,11 +10,14 @@ import com.defence.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
 
-	@Query("SELECT u FROM User u WHERE u.login = :login")
+	@Query("SELECT u FROM User u WHERE LOWER(u.login) = :login")
 	User findUserByLogin(@Param("login") String login);
 	
-	@Query("SELECT u FROM User u WHERE LOWER(u.login) = :login OR LOWER(u.email) = :email")
-	User findUserByEmailOrLogin(@Param("login") String login, @Param("email") String email);
+//	@Query("SELECT u FROM User u WHERE LOWER(u.login) = :login OR LOWER(u.email) = :email")
+//	User findUserByEmailOrLogin(@Param("login") String login, @Param("email") String email);
+	
+	@Query("SELECT u FROM User u WHERE LOWER(u.email) = :email")
+	User findUserByEmail(@Param("email") String email);
 	
 	
 	

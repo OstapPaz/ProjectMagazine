@@ -1,8 +1,12 @@
 package com.defence.entity;
 
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.OneToMany;
 
 import com.defence.entity.enums.UserRole;
 
@@ -33,4 +37,9 @@ public class User extends BaseEntity {
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
 	
+	@OneToMany(mappedBy = "user")
+	private List<Appointment> appointments;
+	
+	@OneToMany(mappedBy = "user")
+	private List<Comments> comments;
 }

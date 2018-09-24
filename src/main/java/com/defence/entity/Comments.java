@@ -1,5 +1,6 @@
 package com.defence.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -11,19 +12,19 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class Appointment extends BaseEntity {
+@AllArgsConstructor
+public class Comments extends BaseEntity {
 
+	private String comment;
+	
 	private String date;
 	
-	private Integer numOfProducts;
-	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "product_id", nullable = false)
-	private Product product;
+	private Product product; 
 	
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id", nullable = false)
 	private User user;
 	

@@ -1,6 +1,7 @@
 package com.defence.dto;
 
 import com.defence.entity.enums.UserRole;
+import com.defence.validator.CheckIfEmailExists;
 import com.defence.validator.CheckIfPasswordsEq;
 import com.defence.validator.CheckIfUserExists;
 
@@ -9,6 +10,7 @@ import lombok.Data;
 @Data
 @CheckIfPasswordsEq
 @CheckIfUserExists
+@CheckIfEmailExists
 public class UserDto {
 	
 	private Integer id;

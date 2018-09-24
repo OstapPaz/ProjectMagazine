@@ -16,14 +16,15 @@
 	
 	<form:form action="/register" method="post" modelAttribute="userDto" style="margin-left: 100px">
 		
-		<form:errors path="*" cssClass="error" />
+		<form:errors path="*" cssClass="error" /> <br>
 		
-		Login: <input type="text" name="login">  <form:errors path="login" cssClass="error" /> <br>
-		Name: <input type="text" name="firstName">  <br>
-		Email: <input type="email" name="email">  <form:errors path="email" cssClass="error" /> <br>
-		Phone: <input type="tel" name="phoneNumber"> <br>
-		Password: <input type="password" name="password"> <form:errors path="password" cssClass="error" /> <br>
-		Password confirm: <input type="password" name="passwordConfirm"> <form:errors path="passwordConfirm" cssClass="error" /> <br>
+		Login: <form:input type="text" path="login" />  <form:errors path="login" cssClass="error" />  <br>
+		Name: <form:input type="text" path="firstName" />  <br>
+		Email: <form:input type="email" path="email" />  <form:errors path="email" cssClass="error" /> <br>
+		Phone: <form:input type="tel" path="phoneNumber" /> <br>
+		Password: <form:input type="password" path="password" /> <form:errors path="password" cssClass="error" /> <br>
+		Password confirm: <form:input type="password" path="passwordConfirm" /> <form:errors path="passwordConfirm" cssClass="error" /> <br>
+		
 		<button type="submit">Register</button>
 		
 	</form:form>

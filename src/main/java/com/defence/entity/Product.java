@@ -1,6 +1,9 @@
 package com.defence.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,6 +32,7 @@ public class Product extends BaseEntity {
 	
 	private long price;
 	
-	
+	@OneToMany(mappedBy = "product")
+	private List<Comments> comments;
 	
 }
